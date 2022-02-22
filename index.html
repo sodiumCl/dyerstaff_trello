@@ -6,38 +6,64 @@
 </head>
 
 <body>
-  <script src="https://p.trellocdn.com/power-up.min.js"></script>
-  <script>
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://api.trello.com/1/client.js?key={621496a8026b25820f353c4f}"></script>
 
-    var myfunction1 = function(t, options){
-        console.log("something in the log");
-    }
+
+<script>
+    var authenticationSuccess = function() {
+    console.log('Successful authentication');
+    };
+
+    var authenticationFailure = function() {
+    console.log('Failed authentication');
+    };
+
+    window.Trello.authorize({
+        type: 'popup',
+        name: 'Getting Started Application',
+        scope: {
+            read: 'true',
+            write: 'true' },
+        expiration: 'never',
+        success: authenticationSuccess,
+        error: authenticationFailure
+    });
+
+    // var myfunction1 = function(t, options){
+    //     console.log("something in the log");
+    // }
     
     
-    TrelloPowerUp.initialize({
-      'card-buttons': function (t, options) {
-        return [
-          {
-            icon: "https://i.ibb.co/6sbknH0/logo-stroke-32pt-style-2-no-stroke.png",
-            text: "Hello World!",
-            callback: function (t) {
-              return t.card('id', 'name').then(card => alert(`Hello from ${card.name} (id: ${card.id})!`))
-            }
-          }
-        ]
-      },
-      'board-buttons': function (t, options) {
-        return [
-          { 
-            icon: "https://i.ibb.co/6sbknH0/logo-stroke-32pt-style-2-no-stroke.png",
-            text: "Hello World!",
-            callback: function (t) {
-              return t.board().then(board => alert(`Hello world!`))
-            }
-          }
-        ]
-      }
-    })
+    // TrelloPowerUp.initialize({
+    //   'card-buttons': function (t, options) {
+    //     return [
+    //       {
+    //         icon: "https://i.ibb.co/6sbknH0/logo-stroke-32pt-style-2-no-stroke.png",
+    //         text: "Hello World!",
+    //         callback: function (t) {
+    //           return t.card('id', 'name').then(card => alert(`Hello from ${card.name} (id: ${card.id})!`))
+    //         }
+    //       }
+    //     ]
+    //   },
+    //   'board-buttons': function (t, options) {
+    //     return [
+    //       { 
+    //         icon: "https://i.ibb.co/6sbknH0/logo-stroke-32pt-style-2-no-stroke.png",
+    //         text: "Hello World!",
+    //         callback: function (t) {
+    //           return t.board().then(board => alert(`Hello world!`))
+    //         }
+    //       }
+    //     ]
+    //   }
+    // })
   </script>
 </body>
 </html>
