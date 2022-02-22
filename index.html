@@ -12,7 +12,7 @@
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous">
     </script>
-    <script src="https://api.trello.com/1/client.js?key={621496a8026b25820f353c4f}"></script>
+    <script src="https://api.trello.com/1/client.js?key={984f3eed9b6f26d3fb6e7263471fbd07}"></script>
 
 
 <script>
@@ -34,6 +34,23 @@
         success: authenticationSuccess,
         error: authenticationFailure
     });
+
+    var myList = '621496a8026b25820f353c4f';
+
+    var creationSuccess = function (data) {
+    console.log('Card created successfully.');
+    console.log(JSON.stringify(data, null, 2));
+    };
+
+    var newCard = {
+    name: 'New Test Card',
+    desc: 'This is the description of our new card.',
+    // Place this card at the top of our list
+    idList: myList,
+    pos: 'top'
+    };
+
+    window.Trello.post('/cards/', newCard, creationSuccess);
 
     // var myfunction1 = function(t, options){
     //     console.log("something in the log");
