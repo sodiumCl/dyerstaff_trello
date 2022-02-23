@@ -7,80 +7,99 @@
 
 <body>
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
-    <script
+    <!-- <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous">
     </script>
-    <script src="https://api.trello.com/1/client.js?key={984f3eed9b6f26d3fb6e7263471fbd07}"></script>
+    <script src="https://api.trello.com/1/client.js?key={984f3eed9b6f26d3fb6e7263471fbd07}"></script> -->
 
 
-<script>
-    var authenticationSuccess = function() {
-    console.log('Successful authentication');
-    };
+  <script>
+    var myicon = "https://i.ibb.co/6sbknH0/logo-stroke-32pt-style-2-no-stroke.png";
 
-    var authenticationFailure = function() {
-    console.log('Failed authentication');
-    };
-
-    window.Trello.authorize({
-        type: 'popup',
-        name: 'Getting Started Application',
-        scope: {
-            read: 'true',
-            write: 'true' },
-        expiration: 'never',
-        success: authenticationSuccess,
-        error: authenticationFailure
+    TrelloPowerUp.Initialize({
+      'card-buttons': function (t,options){
+        return [
+          {
+            icon: myicon,
+            text: "My Butt",
+            callback: function(t){
+              return t.card().then(card => alert('Hello World'))
+            }
+          }
+        ]
+      }
     });
 
-    var myList = '621496a8026b25820f353c4f';
-
-    var creationSuccess = function (data) {
-    console.log('Card created successfully.');
-    console.log(JSON.stringify(data, null, 2));
-    };
-
-    var newCard = {
-    name: 'New Test Card',
-    desc: 'This is the description of our new card.',
-    // Place this card at the top of our list
-    idList: myList,
-    pos: 'top'
-    };
-
-    window.Trello.post('/cards/', newCard, creationSuccess);
-
-    // var myfunction1 = function(t, options){
-    //     console.log("something in the log");
-    // }
     
-    
-    // TrelloPowerUp.initialize({
-    //   'card-buttons': function (t, options) {
-    //     return [
-    //       {
-    //         icon: "https://i.ibb.co/6sbknH0/logo-stroke-32pt-style-2-no-stroke.png",
-    //         text: "Hello World!",
-    //         callback: function (t) {
-    //           return t.card('id', 'name').then(card => alert(`Hello from ${card.name} (id: ${card.id})!`))
-    //         }
-    //       }
-    //     ]
-    //   },
-    //   'board-buttons': function (t, options) {
-    //     return [
-    //       { 
-    //         icon: "https://i.ibb.co/6sbknH0/logo-stroke-32pt-style-2-no-stroke.png",
-    //         text: "Hello World!",
-    //         callback: function (t) {
-    //           return t.board().then(board => alert(`Hello world!`))
-    //         }
-    //       }
-    //     ]
-    //   }
-    // })
-  </script>
+      // var authenticationSuccess = function() {
+      // console.log('Successful authentication');
+      // };
+
+      // var authenticationFailure = function() {
+      // console.log('Failed authentication');
+      // };
+
+      // window.Trello.authorize({
+      //     type: 'popup',
+      //     name: 'Getting Started Application',
+      //     scope: {
+      //         read: 'true',
+      //         write: 'true' },
+      //     expiration: 'never',
+      //     success: authenticationSuccess,
+      //     error: authenticationFailure
+      // });
+
+      // var myList = '621496a8026b25820f353c4f';
+
+      // var creationSuccess = function (data) {
+      // console.log('Card created successfully.');
+      // console.log(JSON.stringify(data, null, 2));
+      // };
+
+      // var newCard = {
+      // name: 'New Test Card',
+      // desc: 'This is the description of our new card.',
+      // // Place this card at the top of our list
+      // idList: myList,
+      // pos: 'top'
+      // };
+
+      // window.Trello.post('/cards/', newCard, creationSuccess);
+
+  // ----------------
+
+      // var myfunction1 = function(t, options){
+      //     console.log("something in the log");
+      // }
+      
+      
+      // TrelloPowerUp.initialize({
+      //   'card-buttons': function (t, options) {
+      //     return [
+      //       {
+      //         icon: "https://i.ibb.co/6sbknH0/logo-stroke-32pt-style-2-no-stroke.png",
+      //         text: "Hello World!",
+      //         callback: function (t) {
+      //           return t.card('id', 'name').then(card => alert(`Hello from ${card.name} (id: ${card.id})!`))
+      //         }
+      //       }
+      //     ]
+      //   },
+      //   'board-buttons': function (t, options) {
+      //     return [
+      //       { 
+      //         icon: "https://i.ibb.co/6sbknH0/logo-stroke-32pt-style-2-no-stroke.png",
+      //         text: "Hello World!",
+      //         callback: function (t) {
+      //           return t.board().then(board => alert(`Hello world!`))
+      //         }
+      //       }
+      //     ]
+      //   }
+      // })
+    </script>
 </body>
 </html>
